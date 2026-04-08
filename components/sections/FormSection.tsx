@@ -33,7 +33,7 @@ const STEP_LABELS = ["Sobre você", "Requisitos", "Confirmar"];
 // ─── Field helpers ─────────────────────────────────────────────────────────────
 
 const inputClass =
-  "w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-150 min-h-[44px]";
+  "w-full px-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-900 text-base placeholder:text-slate-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-150 min-h-[44px]";
 
 function Field({
   label,

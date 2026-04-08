@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: "Sora", sans-serif;
+    color: #1e293b;
+    background-color: #ffffff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #054be5;
+    color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #054be5;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* ---- Smooth scroll offset for anchor links ---- */
+  [id] {
+    scroll-margin-top: 80px;
+  }
+
+  /* ---- Progress bar animation ---- */
+  .progress-fill {
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ---- Form step fade transition ---- */
+  .step-enter {
+    animation: fadeIn 0.35s ease-out both, slideUp 0.35s ease-out both;
+  }
+
+  /* ---- Success checkmark SVG ---- */
+  .check-path {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: checkDraw 0.7s ease-out 0.4s both;
+  }
+
+  /* ---- Card hover lift ---- */
+  .card-hover {
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(5, 75, 229, 0.15);
+  }
+
+  /* ---- Radio card style ---- */
+  .radio-card input[type="radio"]:checked + label,
+  .radio-card input[type="checkbox"]:checked + label {
+    border-color: #054be5;
+    background-color: #eff4ff;
+    color: #054be5;
+  }
+
+  /* ---- Placeholder image block ---- */
+  .img-placeholder {
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .img-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.15));
+  }
+
+  /* ---- Table row hover ---- */
+  .table-row-hover:hover {
+    background-color: #eff4ff;
+    cursor: pointer;
+  }
+}
+
+@layer utilities {
+  .font-sora { font-family: "Sora", sans-serif; }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Scrollbar thin */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+  }
+
+  /* ---- Hide Next.js Dev Watermarks ---- */
+  #nextjs-portal, 
+  [data-nextjs-toast], 
+  [data-nextjs-dialog-overlay],
+  #__next-build-watcher,
+  .nextjs-static-indicator-container {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
